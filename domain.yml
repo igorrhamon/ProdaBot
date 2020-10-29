@@ -1,34 +1,83 @@
 version: "2.0"
 
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- bot_challenge
+- acesso_impressora
+- info_end_log
+- info_login
+- mood_great
+- affirm
+- greet
+- deny
+- mood_unhappy
+- nlu_fallback
+entities:
+- login
+- end_log
+slots:
+  end_log:
+    type: text
+    influence_conversation: true
+  login_l:
+    type: text
+    influence_conversation: true
+  login_solicitante:
+    type: text
+    influence_conversation: true
+  num_chamado:
+    type: text
+    influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_setor:
+  - text: O setor do login {setor}
+  utter_end_log_incorreto:
+  - text: Endereço lógico incorreto!
+  utter_chamado_aberto:
+  - text: Chamado aberto! O numero é {{num_chamado}}(http://192.168.1.42/otrs/)
+  utter_ask_login_solicitante:
+  - text: Qual o seu login?
+  utter_ask_login_l:
+  - text: Qual o login da pessoa para quem a impressora será liberada?
+  utter_ask_end_log:
+  - text: Qual o endereço lógico
+  utter_please_rephrase:
+  - text: Desculpe, não entendi bem. Você poderia reformular?
+  action_default_fallback:
+  - text: Tente novamente.
+  utter_default:
+  - text: Tente novamente (default fallback).
+actions:
+- validate_form_info
+forms:
+  form_info:
+    end_log:
+    - entity: end_log
+      intent: info_end_log
+      type: from_entity
+    login_l:
+    - entity: login
+      intent: info_login
+      type: from_entity
+    login_solicitante:
+    - entity: login
+      intent: info_login
+      type: from_entity

@@ -1,92 +1,145 @@
 version: "2.0"
-
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-
-- intent: goodbye
-  examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: acesso_impressora
+  examples: |
+    - Acesso a impressora
+    - Acesso a impressora [is1023](end_log)
+    - Liberar acesso a impressora
+    - instalar impressora
+    - autorizar acesso a impressora [IS0812]{"entity": "end_log", "value": "is0812"}
+    - autorizar acesso a impressora
+    - Acessar a impressora
+    - Acessar impressora
+- intent: info_end_log
+  examples: |
+    - [is1023](end_log)
+    - impressora [is0891](end_log)
+    - [IS0812]{"entity": "end_log", "value": "is0812"}
+    - [iso1282]{"entity": "end_log", "value": "is1282"}
+    - [IS0771](end_log)
+    - [IS0770](end_log)
+    - [IS0769](end_log)
+    - [IS0768](end_log)
+    - [IS0767](end_log)
+    - [IS0766](end_log)
+    - [IS0765](end_log)
+    - [IS0764](end_log)
+    - [IS0763](end_log)
+    - [IS0762](end_log)
+    - [IS0761](end_log)
+    - [IS0760](end_log)
+    - [SDFF](end_log)
+    - [S250](end_log)
+    - [IXRH](end_log)
+    - [IXRF](end_log)
+    - [IX9Y](end_log)
+    - [IX21](end_log)
+    - [IX0002](end_log)
+    - [IL0542](end_log)
+    - [IL0517](end_log)
+    - [IL0493](end_log)
+    - [IL0428](end_log)
+    - [IL0381](end_log)
+    - [IL0375](end_log)
+    - [IL0319](end_log)
+    - [IL0185](end_log)
+    - [IL0072](end_log)
+    - [IL0065](end_log)
+    - [IL0059](end_log)
+    - [IK0179](end_log)
+    - [II00](end_log)
+    - [IH7C](end_log)
+    - [IH5M](end_log)
+    - [IH5D](end_log)
+    - [IH58](end_log)
+    - [IH3N](end_log)
+    - [IH3D](end_log)
+    - [IGQB](end_log)
+    - [IGMH](end_log)
+    - [IGL1](end_log)
+    - [IGKN](end_log)
+    - [IGKM](end_log)
+    - [IGIT](end_log)
+    - [IGCW](end_log)
+    - [IGAE](end_log)
+    - [IGAC](end_log)
+    - [IG95](end_log)
+    - [IG71](end_log)
+    - [IG6N](end_log)
+    - [IS0572](end_log)
+    - [IS0571](end_log)
+    - [IS0570](end_log)
+    - [IS0569](end_log)
+    - [IS0568](end_log)
+    - [IS0567](end_log)
+    - [IS0566](end_log)
+    - [IS0565](end_log)
+    - [IS0564](end_log)
+    - [IS0563](end_log)
+    - [IS0562](end_log)
+    - [IS0561](end_log)
+    - [IS0560](end_log)
+    - [is8765](login)
+    - [is0001](end_log)
+- intent: info_login
+  examples: |
+    - [igorrc](login)
+    - meu login é [aferreira](login)
+    - [aferreira](login)
+    - login é [aferreira](login)
+    - [hcortez](login)
+    - [rabelo](login)
+    - [Administrator](login)
+    - [CARIORIT](login)
+    - [FAGA](login)
+    - [VARELA](login)
+    - [MARLUCIA](login)
+    - [SONIALIM](login)
+    - [TRIND](login)
+    - [FABIOALV](login)
+    - [BALTAZAR](login)
+    - [alessan](login)
+    - [AIRLENE](login)
+    - [VANIGON](login)
+    - [FBNETTO](login)
+    - [SONIAC](login)
+    - [VISCARDI](login)
+    - [EMILIAP](login)
+    - [KEILAIN](login)
+    - [JPINTO](login)
+    - [EDGARSO](login)
+    - [leorlan](login)
+    - [86488023420](login)
+    - [65242777591](login)
+    - [60433086653](login)
+    - [04116230952](login)
+    - [44833881349](login)
+    - [00452519675](login)
+    - [35284420420](login)
+    - [28022995819](login)
+    - [53447468904](login)
+    - [27582400682](login)
+    - [07733341736](login)
+    - [15670961315](login)
+    - [23340541434](login)
+    - [83762116334](login)
+    - [60751266191](login)
+    - [47247436700](login)
+    - [05132597670](login)
+    - [31200606825](login)
+    - [10655365770](login)
+    - [54779537134](login)
+    - [83146270463](login)
+    - [24633631934](login)
+- synonym: is0812
+  examples: |
+    - IS0812
+- synonym: is1282
+  examples: |
+    - iso1282

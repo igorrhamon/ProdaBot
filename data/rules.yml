@@ -1,13 +1,18 @@
 version: "2.0"
 
 rules:
-
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+
+
+- rule: Login solicitante incorreto
+  condition:
+  - active_loop: form_info
+  - slot_was_set:
+    - requested_slot: null
+  steps:
+  - active_loop: null
+  - action: utter_chamado_aberto

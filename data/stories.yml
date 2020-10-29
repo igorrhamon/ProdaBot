@@ -1,30 +1,19 @@
 version: "2.0"
-
 stories:
-
-- story: happy path
+- story: Abrir Chamado
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: acesso_impressora
+  - action: form_info
+  - intent: info_login
+  - slot_was_set:
+    - requested_slot: login_solicitante
+  - active_loop: form_info
+  - intent: info_end_log
+  - active_loop: form_info
+  - slot_was_set:
+    - requested_slot: end_log
+  - intent: info_login
+  - active_loop: form_info
+  - slot_was_set:
+    - requested_slot: login_l
+  - action: utter_chamado_aberto
