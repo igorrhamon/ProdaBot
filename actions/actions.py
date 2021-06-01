@@ -1,6 +1,7 @@
 from rasa_sdk.events import SlotSet, ReminderScheduled, ConversationPaused, ConversationResumed, FollowupAction, Restarted, ReminderScheduled
 from typing import Text, List, Dict, Any
 import json
+import os
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType, SlotSet
 from rasa_sdk.executor import CollectingDispatcher
@@ -33,7 +34,7 @@ def criar_body_auto_ticket(entries_solicitante, entries_l, end_log):
 
 def procura_login(login):
     server = Server('senado.gov.br', get_info=ALL)
-    conn = Connection(server, user="SENADO.gov.br\\igorrc", password="rogirh26", authentication=NTLM)
+    conn = Connection(server, user=os.environ['senadoUser'], password=os.environ['senadoPassword'], authentication=NTLM)
     conn.bind()
     conn.search('dc=senado,dc=gov,dc=br', '(sAMAccountName={})'.format( login), attributes=ALL_ATTRIBUTES)
     entry = conn.entries[0]
@@ -54,7 +55,7 @@ class validate_FormInfo(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate cuisine value."""   
         server = Server('senado.gov.br', get_info=ALL)
-        conn = Connection(server, user="SENADO.gov.br\\igorrc", password="rogirh26", authentication=NTLM)
+        conn = Connection(server, user=os.environ['senadoUser'], password=os.environ['senadoPassword'], authentication=NTLM)
         conn.bind()
         #fc2 = False
         #loginvalidado = False
@@ -89,7 +90,7 @@ class validate_FormInfo(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate cuisine value."""
         server = Server('senado.gov.br', get_info=ALL)
-        conn = Connection(server, user="SENADO.gov.br\\igorrc", password="rogirh26", authentication=NTLM)
+        conn = Connection(server, user=os.environ['senadoUser'], password=os.environ['senadoPassword'], authentication=NTLM)
         conn.bind()
         #conn.search('dc=senado,dc=gov,dc=br', '(&(printerName={})'.format( slot_value.lower()), attributes=[ 'printerName'])
         end_log_verificado = False
@@ -123,7 +124,7 @@ class validate_FormInfo(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate cuisine value."""
         server = Server('senado.gov.br', get_info=ALL)
-        conn = Connection(server, user="SENADO.gov.br\\igorrc", password="rogirh26", authentication=NTLM)
+        conn = Connection(server, user=os.environ['senadoUser'], password=os.environ['senadoPassword'], authentication=NTLM)
         conn.bind()
 
         login_l= "igorrc"
